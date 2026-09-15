@@ -25,6 +25,9 @@ h1, h2, h3, p { margin-top: 0; }
 .site-header nav a:hover { text-decoration: underline; }
 .site-header nav a[aria-current="page"] { font-weight: bold; text-decoration: underline; }
 main { padding-top: 36px; }
+.seminar-concept { margin-bottom: 32px; max-width: 820px; }
+.seminar-concept p { font-size: 1rem; margin: 0 0 12px; }
+.seminar-concept p:last-child { margin-bottom: 0; }
 h2 { font-size: 1.3125rem; font-weight: bold; line-height: 1.4; margin: 0; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
 .year-picker { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
@@ -32,7 +35,6 @@ h2 { font-size: 1.3125rem; font-weight: bold; line-height: 1.4; margin: 0; }
 .year-picker label { font-size: .875rem; }
 .year-picker select { font: .875rem/1.4 var(--sans); background: #fff; color: var(--ink); border: 1px solid #aaa; border-radius: 0; padding: 7px 8px; min-height: 36px; }
 .archive-note { color: var(--muted); font-size: .875rem; margin: -7px 0 20px; }
-.demo-note { font-size: .8125rem; color: var(--muted); margin: 0 0 22px; }
 .table-heading { display: grid; grid-template-columns: 164px minmax(0,1fr); gap: 28px; border-bottom: 1px solid #888; padding-bottom: 8px; font-size: .875rem; color: var(--muted); }
 .sessions { padding: 0; margin: 0; list-style: none; }
 .session { display: grid; grid-template-columns: 164px minmax(0,1fr); gap: 28px; padding: 23px 0 25px; border-bottom: 1px solid var(--line); }
@@ -42,6 +44,8 @@ h3 { font: bold 1.0625rem/1.5 var(--sans); margin: 0 0 8px; }
 .speaker { margin: 0; font-size: 1rem; }
 .affiliation { display: block; font-size: .9375rem; color: var(--muted); margin-top: 2px; }
 .session-place { margin: 10px 0 0; font-size: .875rem; color: var(--muted); }
+.presentation + .presentation { margin-top: 22px; }
+.session-note { font-size: .9375rem; color: var(--muted); margin: 8px 0 0; }
 details { margin-top: 8px; }
 summary { cursor: pointer; width: fit-content; font-size: .875rem; padding: 6px 0; text-decoration: underline; text-underline-offset: 3px; }
 summary:hover { text-decoration-thickness: 2px; }
@@ -62,6 +66,7 @@ summary:hover { text-decoration-thickness: 2px; }
 .personne h4 { font-size: 1rem; font-weight: bold; margin: 0; }
 .personne p { margin: 0; font-size: 1rem; }
 .personne p > span { display: block; margin-top: 2px; color: var(--muted); font-size: .9375rem; }
+.personne p > .research-fields { color: var(--ink); margin: 4px 0; }
 .personne .text-link { white-space: nowrap; }
 .return-programme { margin-top: 32px; }
 .site-footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 56px; padding: 18px 0 28px; border-top: 1px solid #888; color: var(--muted); font-size: .8125rem; }

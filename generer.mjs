@@ -35,13 +35,20 @@ function layout(title, content, active = 'programme') {
 </html>`;
 }
 
+function presentation(expose) {
+  return `<div class="presentation"><h3${expose.langue ? ` lang="${e(expose.langue)}"` : ''}>${e(expose.titre)}</h3><p class="speaker">${e(expose.intervenant)}<span class="affiliation">${e(expose.affiliation)}</span></p>${expose.resume ? `<details><summary>Résumé</summary><p class="abstract">${e(expose.resume)}</p></details>` : ''}${expose.url ? `<p><a class="text-link" href="${e(safeUrl(expose.url))}">Plus d’informations</a></p>` : ''}</div>`;
+}
+
 function session(seance) {
-  const date = new Date(seance.date + 'T12:00:00Z');
-  const dateComplete = new Intl.DateTimeFormat('fr-FR', {day:'numeric', month:'long', year:'numeric', timeZone:'UTC'}).format(date);
+  const moisSeul = /^\d{4}-\d{2}$/.test(seance.date);
+  const date = new Date(seance.date + (moisSeul ? '-01' : '') + 'T12:00:00Z');
+  const dateComplete = new Intl.DateTimeFormat('fr-FR', { ...(moisSeul ? {} : {day:'numeric'}), month:'long', year:'numeric', timeZone:'UTC'}).format(date);
   const horaire = value => value.replace(':', ' h ').replace(' h 00', ' h');
+  const debut = seance.debut ?? seminaire.horaire;
+  const lieu = [seance.lieu, seance.adresse].filter(Boolean).join(' — ');
   return `<li class="session">
-    <div class="session-meta"><time class="session-date" datetime="${e(seance.date)}">${e(dateComplete)}</time><p class="session-time">${e(horaire(seance.debut))} – ${e(horaire(seance.fin))}</p></div>
-    <div class="session-main"><h3>${e(seance.titre)}</h3><p class="speaker">${e(seance.intervenant)}<span class="affiliation">${e(seance.affiliation)}</span></p><p class="session-place">${e(seance.lieu)} — ${e(seance.adresse)}</p>${seance.resume ? `<details><summary>Résumé</summary><p class="abstract">${e(seance.resume)}</p>${seance.url ? `<p><a class="text-link" href="${e(safeUrl(seance.url))}">Plus d’informations</a></p>` : ''}</details>` : seance.url ? `<p><a class="text-link" href="${e(safeUrl(seance.url))}">Plus d’informations</a></p>` : ''}</div>
+    <div class="session-meta"><time class="session-date" datetime="${e(seance.date)}">${e(dateComplete)}</time>${debut ? `<p class="session-time">${e(horaire(debut))}${seance.fin ? ` – ${e(horaire(seance.fin))}` : ''}</p>` : ''}</div>
+    <div class="session-main">${seance.presentations.length ? seance.presentations.map(presentation).join('') : `<h3>${e(seance.titre ?? 'Séance à organiser')}</h3>`}${seance.note ? `<p class="session-note">${e(seance.note)}</p>` : ''}${lieu ? `<p class="session-place">${e(lieu)}</p>` : ''}</div>
   </li>`;
 }
 
@@ -49,10 +56,10 @@ function programmePage(year) {
   const sessions = programmes[year];
   const archived = year !== seminaire.anneeCourante;
   return layout(`Programme ${annee(year)}`, `
+    ${!archived ? `<section class="seminar-concept" aria-label="Présentation du séminaire"><p>${e(seminaire.concept)}</p><p>${e(seminaire.accueil)}</p></section>` : ''}
     <section class="programme" aria-labelledby="titre-programme">
       <div class="section-heading"><h2 id="titre-programme">Programme ${annee(year)}</h2><div class="year-picker" hidden><label for="edition">Année<span class="visually-hidden"> universitaire (ouvre le programme sélectionné)</span></label><select id="edition">${annees.map(y => `<option value="${programmeUrl(y)}"${y === year ? ' selected' : ''}>${annee(y)}</option>`).join('')}</select></div></div>
       ${archived ? '<p class="archive-note">Archives — année universitaire '+annee(year)+'.</p>' : ''}
-      ${seminaire.demonstration ? '<p class="demo-note">Programme d’exemple : les séances, noms et lieux ci-dessous sont fictifs.</p>' : ''}
       <div class="table-heading" aria-hidden="true"><span>Date et horaire</span><span>Séance</span></div>
       ${sessions.length ? `<ol class="sessions">${sessions.map(session).join('\n')}</ol>` : '<p class="empty-programme">Le programme sera annoncé prochainement.</p>'}
     </section>
@@ -67,15 +74,14 @@ function safeUrl(value) {
 }
 
 function personne(membre) {
-  return `<li class="personne"><h4>${e(membre.nom)}</h4><p>${e(membre.statut)}<span>${e(membre.affiliation)}</span></p>${membre.url ? `<a class="text-link" href="${e(safeUrl(membre.url))}">Page personnelle<span class="visually-hidden"> de ${e(membre.nom)}</span></a>` : ''}</li>`;
+  return `<li class="personne"><h4>${e(membre.nom)}</h4><p>${e(membre.statut)}${membre.domaines ? `<span class="research-fields" lang="en">${e(membre.domaines)}</span>` : ''}<span>${e(membre.affiliation)}</span></p>${membre.url ? `<a class="text-link" href="${e(safeUrl(membre.url))}">Page personnelle<span class="visually-hidden"> de ${e(membre.nom)}</span></a>` : ''}</li>`;
 }
 
 function equipePage() {
   return layout('Bureau et équipe', `
     <h2 class="team-heading">Bureau et équipe · ${annee(seminaire.anneeCourante)}</h2>
-    ${seminaire.demonstration ? '<p class="demo-note">Équipe d’exemple : les noms et les affiliations ci-dessous sont fictifs.</p>' : ''}
     <section class="team-section" aria-labelledby="titre-bureau"><h3 id="titre-bureau">Bureau / comité d’organisation</h3><ul class="people">${equipe.bureau.map(personne).join('')}</ul></section>
-    <section class="team-section" aria-labelledby="titre-doctorants"><h3 id="titre-doctorants">Doctorantes et doctorants associés</h3><ul class="people">${equipe.doctorants.map(personne).join('')}</ul></section>
+    ${equipe.doctorants.length ? `<section class="team-section" aria-labelledby="titre-doctorants"><h3 id="titre-doctorants">Doctorantes et doctorants associés</h3><ul class="people">${equipe.doctorants.map(personne).join('')}</ul></section>` : ''}
     <div class="return-programme"><a class="text-link" href="/">Programme ${annee(seminaire.anneeCourante)}</a></div>
   `, 'equipe');
 }

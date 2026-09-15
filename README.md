@@ -7,17 +7,27 @@ archives et équipe. La typographie utilise les polices disponibles sur l’appa
 
 Tout le contenu éditorial se trouve dans `contenu.mjs` :
 
-- `seminaire` : nom, phrase de présentation, année courante, indication de démonstration ;
+- `seminaire` : nom, présentation du concept, remerciements aux lieux d’accueil,
+  année courante et horaire habituel (15 h) ;
 - `programmes` : séances classées par année universitaire ;
-- `equipe.bureau` et `equipe.doctorants` : nom, statut, affiliation et URL facultative.
+- `equipe.bureau` et `equipe.doctorants` : nom, statut, domaines de recherche,
+  affiliation et URL facultative. La section des doctorants associés est masquée
+  tant que cette liste est vide.
 
-Les séances, les personnes, les affiliations et les lieux sont **fictifs**.
-Après avoir remplacé les exemples par des informations vérifiées, passer
-`demonstration` à `false` pour retirer la mention de démonstration.
+Le site contient les informations fournies par les organisateurs : l’archive
+2025–2026 et le programme 2026–2027. Le lieu du 7 septembre 2026 n’a pas encore
+été renseigné. La séance d’octobre reste à organiser.
 
-Chaque séance accepte les champs `date` (AAAA-MM-JJ), `debut`, `fin` (HH:MM),
-`titre`, `intervenant`, `affiliation`, `lieu`, `adresse`, `resume` et `url`.
-`resume` et `url` sont facultatifs. Les URL doivent être des adresses HTTP(S).
+Chaque séance accepte les champs `date` (AAAA-MM-JJ, ou AAAA-MM lorsque seul
+le mois est fixé), `debut`, `fin` (HH:MM), `lieu`, `adresse`, `note` et
+`presentations`. En l’absence de `debut`, l’horaire habituel est utilisé.
+L’heure de fin et le lieu sont affichés uniquement lorsqu’ils sont renseignés.
+
+`presentations` est une liste de communications, chacune avec `titre`,
+`intervenant`, `affiliation`, et éventuellement `langue`, `resume` ou `url`.
+Les résumés se déplient lorsqu’ils sont fournis. Les URL doivent être des
+adresses HTTP(S). Une séance à organiser peut avoir une liste vide et un `titre`.
+La séance du 19 juin 2026 regroupe ainsi trois présentations sous la même date.
 
 Après une modification, exécuter depuis ce dossier :
 
