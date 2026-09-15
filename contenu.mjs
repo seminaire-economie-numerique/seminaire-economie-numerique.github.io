@@ -82,10 +82,11 @@ export const programmes = {
 
 export const equipe = {
   bureau: [
-    { nom: 'Si-Hao Li', statut: 'Doctorant', domaines: 'Industrial Organization, Digital Economics', affiliation: 'Télécom Paris, CREST', url: '' },
-    { nom: 'Hugo Arribas', statut: 'Doctorant', domaines: 'Digital Economics, Quantitative Marketing', affiliation: 'IMT Business School, LITEM', url: '' },
-    { nom: 'Maxime Mélard', statut: 'Doctorant', domaines: 'Industrial Organization, Digital Economics', affiliation: 'Université Paris Assas, CRED', url: '' },
-    { nom: 'Corentin Jolivel', statut: 'Doctorant', domaines: 'Cultural Economics, Digital Economics', affiliation: 'Université Sorbonne Paris Nord, ACT', url: '' },
+    { nom: 'Si-Hao Li', statut: 'Doctorant en économie', domaines: 'Industrial Organization, Digital Economics', affiliation: 'Télécom Paris, CREST', url: '' },
+    { nom: 'Hugo Arribas', statut: 'Doctorant en économie', domaines: 'Digital Economics, Quantitative Marketing', affiliation: 'IMT Business School, LITEM', url: '' },
+    { nom: 'Maxime Mélard', statut: 'Doctorant en économie', domaines: 'Industrial Organization, Digital Economics', affiliation: 'Université Paris Assas, CRED', url: '' },
+    { nom: 'Corentin Jolivel', statut: 'Doctorant en économie', domaines: 'Cultural Economics, Digital Economics', affiliation: 'Université Sorbonne Paris Nord, ACT', url: '' },
   ],
   doctorants: [],
 };
+
