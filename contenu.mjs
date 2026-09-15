@@ -2,7 +2,7 @@
 // Les contenus ci-dessous sont des exemples fictifs.
 export const seminaire = {
   nom: 'Séminaire des doctorants en économie numérique',
-  introduction: 'Un espace de discussion autour des recherches doctorales sur l’économie numérique.',
+  introduction: 'Présentation et discussion de travaux de thèse en économie numérique.',
   anneeCourante: '2026-2027',
   demonstration: true,
 };
