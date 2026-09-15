@@ -30,7 +30,7 @@ jobs:
       - name: Configurer GitHub Pages
         uses: actions/configure-pages@v5
       - name: Générer les pages
-        run: node generer.mjs --base-path /seminaire-economie-numerique
+        run: node generer.mjs --base-path /seminaire
       - name: Préparer la publication
         uses: actions/upload-pages-artifact@v3
         with:

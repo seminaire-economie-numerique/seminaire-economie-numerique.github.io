@@ -5,18 +5,18 @@ archives et équipe. La typographie utilise les polices disponibles sur l’appa
 
 ## Publication sur GitHub Pages
 
-Le dépôt dédié est `sihao-li/seminaire-economie-numerique`. À chaque modification
+Le dépôt dédié est `sihao-li/seminaire`. À chaque modification
 enregistrée sur la branche `main`, GitHub Actions régénère et publie le site.
 Le workflow est défini dans `.github/workflows/pages.yml` et publie uniquement
 le dossier `dist`. Aucun nom de domaine personnalisé n’est configuré pour ce dépôt.
 
-Les liens sont adaptés au chemin `/seminaire-economie-numerique/` lors de la
+Les liens sont adaptés au chemin `/seminaire/` lors de la
 publication. Le site personnel est géré par son propre dépôt.
 
 La commande utilisée pour la publication est :
 
 ```powershell
-node generer.mjs --base-path /seminaire-economie-numerique
+node generer.mjs --base-path /seminaire
 ```
 
 Pour mettre le programme à jour, modifier `contenu.mjs`, enregistrer la
