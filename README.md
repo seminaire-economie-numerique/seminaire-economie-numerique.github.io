@@ -3,6 +3,26 @@
 Site académique sobre, en français, sans dépendance externe : programme annuel,
 archives et équipe. La typographie utilise les polices disponibles sur l’appareil.
 
+## Publication sur GitHub Pages
+
+Le dépôt dédié est `sihao-li/seminaire-economie-numerique`. À chaque modification
+enregistrée sur la branche `main`, GitHub Actions régénère et publie le site.
+Le workflow est défini dans `.github/workflows/pages.yml` et publie uniquement
+le dossier `dist`. Aucun nom de domaine personnalisé n’est configuré pour ce dépôt.
+
+Les liens sont adaptés au chemin `/seminaire-economie-numerique/` lors de la
+publication. Le site personnel est géré par son propre dépôt.
+
+La commande utilisée pour la publication est :
+
+```powershell
+node generer.mjs --base-path /seminaire-economie-numerique
+```
+
+Pour mettre le programme à jour, modifier `contenu.mjs`, enregistrer la
+modification sur GitHub, puis attendre la réussite de « Publier le séminaire »
+dans l’onglet Actions. Aucun secret ou jeton personnel n’est nécessaire au workflow.
+
 ## Personnaliser le contenu
 
 Tout le contenu éditorial se trouve dans `contenu.mjs` :
@@ -60,8 +80,8 @@ Ouvrir `http://127.0.0.1:4173` dans un navigateur. Arrêter avec Ctrl+C.
 - `dist/index.html` : programme de l’année courante ;
 - `dist/archives/` : éditions précédentes ;
 - `dist/equipe/index.html` : bureau et doctorants associés ;
-- `.openai/hosting.json` : identité du site et dossier publié.
+- `.github/workflows/pages.yml` : publication automatique sur GitHub Pages.
 
-Pour un hébergement statique, publier uniquement le dossier `dist`. Les chemins
-sont prévus pour un site à la racine de son domaine. Ce projet ne comprend pas
+Pour un autre hébergement statique, publier uniquement le dossier `dist` après
+génération sans `--base-path` si le site est à la racine du domaine. Ce projet ne comprend pas
 d’interface d’administration : les mises à jour passent par `contenu.mjs`.

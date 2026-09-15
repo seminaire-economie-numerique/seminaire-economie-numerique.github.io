@@ -1,6 +1,14 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { seminaire, programmes, equipe } from './contenu.mjs';
 
+// Un site de projet GitHub Pages est servi sous /nom-du-depot/.
+// Sans option, les fichiers restent utilisables à la racine en aperçu local.
+const basePathIndex = process.argv.indexOf('--base-path');
+const basePath = basePathIndex === -1 ? '' : process.argv[basePathIndex + 1];
+if (typeof basePath !== 'string' || !/^(\/[a-zA-Z0-9_-]+)*$/.test(basePath)) {
+  throw new Error('Le chemin de base doit être vide ou de la forme /nom-du-depot.');
+}
+
 const e = (value) => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const annee = (value) => value.replace('-', '–');
 const annees = Object.keys(programmes).sort().reverse();
@@ -32,7 +40,7 @@ function layout(title, content, active = 'programme') {
     <footer class="site-footer"><p>${e(seminaire.nom)}</p><a href="/#archives">Archives du programme</a></footer>
   </div>
 </body>
-</html>`;
+</html>`.replace(/\b(href|src|value)="\/(?!\/)/g, (_, attribute) => `${attribute}="${basePath}/`);
 }
 
 function presentation(expose) {
