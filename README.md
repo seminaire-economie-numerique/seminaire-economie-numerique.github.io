@@ -28,6 +28,9 @@ L’heure de fin et le lieu sont affichés uniquement lorsqu’ils sont renseign
 Les résumés se déplient lorsqu’ils sont fournis. Les URL doivent être des
 adresses HTTP(S). Une séance à organiser peut avoir une liste vide et un `titre`.
 La séance du 19 juin 2026 regroupe ainsi trois présentations sous la même date.
+Les séances sont affichées de la plus récente à la plus ancienne dans chaque
+édition, indépendamment de leur ordre dans le fichier. L’ordre des présentations
+au sein d’une séance est conservé.
 
 Après une modification, exécuter depuis ce dossier :
 

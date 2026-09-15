@@ -53,7 +53,7 @@ function session(seance) {
 }
 
 function programmePage(year) {
-  const sessions = programmes[year];
+  const sessions = [...programmes[year]].sort((a, b) => b.date.localeCompare(a.date));
   const archived = year !== seminaire.anneeCourante;
   return layout(`Programme ${annee(year)}`, `
     ${!archived ? `<section class="seminar-concept" aria-label="Présentation du séminaire"><p>${e(seminaire.concept)}</p><p>${e(seminaire.accueil)}</p></section>` : ''}
