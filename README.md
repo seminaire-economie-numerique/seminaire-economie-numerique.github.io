@@ -25,6 +25,13 @@ dans l’onglet Actions. Aucun secret ou jeton personnel n’est nécessaire au 
 
 ## Personnaliser le contenu
 
+Le site est disponible en français à la racine et en anglais sous `/en/`.
+Le sélecteur FR / EN conserve la page (programme, équipe ou archive).
+Les traductions éditoriales se trouvent dans les champs suffixés `En` de `contenu.mjs` ;
+les libellés d’interface sont regroupés dans `traductions.mjs`.
+Les titres des présentations et les noms des institutions sont conservés dans leur langue d’origine.
+L’adresse `seminaire.contact` alimente le lien de contact en bas de chaque page.
+
 Tout le contenu éditorial se trouve dans `contenu.mjs` :
 
 - `seminaire` : nom, présentation du concept, remerciements aux lieux d’accueil,

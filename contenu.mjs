@@ -1,9 +1,14 @@
 // Informations fournies par les organisateurs du séminaire.
 export const seminaire = {
   nom: 'Séminaire des doctorants en économie numérique',
+  nomEn: 'PhD Seminar in Digital Economics',
   introduction: 'Présentation et discussion de travaux de thèse en économie numérique.',
+  introductionEn: 'Presenting and discussing doctoral research in digital economics.',
   concept: 'Une fois par mois, les doctorantes et doctorants se retrouvent pour deux ou trois présentations : un papier, une idée de papier ou un projet de thèse. On prolonge ensuite la discussion autour d’une bière ou d’un verre, entre doctorants.',
+  conceptEn: 'Once a month, PhD students get together for two or three presentations: a paper, an idea for a paper, or a thesis project. Afterwards, we continue the conversation over a beer or a drink with fellow PhD students.',
   accueil: 'Selon les séances, le séminaire se tient au Campus Condorcet, au CRED de l’Université Paris Assas, dans le 15e arrondissement de Paris, ou à l’IMT Business School à Évry. Nous les remercions pour leur accueil.',
+  accueilEn: 'Depending on the session, the seminar takes place at Campus Condorcet, at CRED, Université Paris Assas, in the 15th arrondissement of Paris, or at IMT Business School in Évry. We thank these institutions for hosting us.',
+  contact: 'si.li@ip-paris.fr',
   anneeCourante: '2026-2027',
   horaire: '15:00',
 };
@@ -24,7 +29,9 @@ export const programmes = {
     {
       date: '2026-10',
       titre: 'Séance à organiser',
+      titreEn: 'Session to be arranged',
       note: 'La date, le lieu et les présentations seront annoncés prochainement.',
+      noteEn: 'The date, venue and presentations will be announced shortly.',
       presentations: [],
     },
     {
@@ -32,6 +39,7 @@ export const programmes = {
       lieu: 'IMT Business School',
       adresse: 'Évry',
       note: 'Date à confirmer.',
+      noteEn: 'Date to be confirmed.',
       presentations: [
         {
           titre: 'JMP — Floor Shipping Fee and Resale Price Maintenance: Analysis of the French book market',
