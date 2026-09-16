@@ -3,7 +3,7 @@ export const seminaire = {
   nom: 'Séminaire des doctorants en économie numérique',
   introduction: 'Présentation et discussion de travaux de thèse en économie numérique.',
   concept: 'Une fois par mois, les doctorantes et doctorants se retrouvent pour deux ou trois présentations : un papier, une idée de papier ou un projet de thèse. On prolonge ensuite la discussion autour d’une bière ou d’un verre, entre doctorants.',
-  accueil: 'Selon les séances, le séminaire se tient au Campus Condorcet ou au CRED de l’Université Paris Assas, dans le 15e arrondissement de Paris. Nous les remercions pour leur accueil.',
+  accueil: 'Selon les séances, le séminaire se tient au Campus Condorcet, au CRED de l’Université Paris Assas, dans le 15e arrondissement de Paris, ou à l’IMT Business School à Évry. Nous les remercions pour leur accueil.',
   anneeCourante: '2026-2027',
   horaire: '15:00',
 };
@@ -26,6 +26,20 @@ export const programmes = {
       titre: 'Séance à organiser',
       note: 'La date, le lieu et les présentations seront annoncés prochainement.',
       presentations: [],
+    },
+    {
+      date: '2026-11',
+      lieu: 'IMT Business School',
+      adresse: 'Évry',
+      note: 'Date à confirmer.',
+      presentations: [
+        {
+          titre: 'JMP — Floor Shipping Fee and Resale Price Maintenance: Analysis of the French book market',
+          intervenant: 'Martin Delville',
+          affiliation: 'Télécom Paris, CREST',
+          langue: 'en',
+        },
+      ],
     },
   ],
   '2025-2026': [
