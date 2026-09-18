@@ -47,6 +47,12 @@ export const programmes = {
           affiliation: 'Télécom Paris, CREST',
           langue: 'en',
         },
+        {
+          titre: 'Isochrone-based distance measurement in the enhanced two-step floating catchment area (E2SFCA) framework',
+          intervenant: 'Haoua Ben Ali Abbo',
+          affiliation: 'Télécom Paris, CREST',
+          langue: 'en',
+        },
       ],
     },
   ],
@@ -109,6 +115,8 @@ export const equipe = {
     { nom: 'Maxime Mélard', statut: 'Doctorant en économie', domaines: 'Industrial Organization, Digital Economics', affiliation: 'Université Paris Assas, CRED', url: '' },
     { nom: 'Corentin Jolivel', statut: 'Doctorant en économie', domaines: 'Cultural Economics, Digital Economics', affiliation: 'Université Sorbonne Paris Nord, ACT', url: '' },
   ],
-  doctorants: [],
+  doctorants: [
+    { nom: 'Léna Poinsignon', statut: 'Doctorante', statutEn: 'PhD student', affiliation: 'IMT Business School, LITEM', url: '' },
+  ],
 };
 
