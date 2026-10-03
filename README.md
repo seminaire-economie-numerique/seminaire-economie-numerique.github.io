@@ -42,8 +42,8 @@ Tout le contenu éditorial se trouve dans `contenu.mjs` :
   tant que cette liste est vide.
 
 Le site contient les informations fournies par les organisateurs : l’archive
-2025–2026 et le programme 2026–2027. Le lieu du 7 septembre 2026 n’a pas encore
-été renseigné. La séance d’octobre reste à organiser.
+2025–2026 et le programme 2026–2027. Les séances du 7 septembre et du 15 octobre
+2026 se tiennent en salle 001 au CRED. La date de la séance de novembre reste à confirmer.
 
 Chaque séance accepte les champs `date` (AAAA-MM-JJ, ou AAAA-MM lorsque seul
 le mois est fixé), `debut`, `fin` (HH:MM), `lieu`, `adresse`, `note` et

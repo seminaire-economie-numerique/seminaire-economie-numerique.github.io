@@ -17,6 +17,7 @@ export const programmes = {
   '2026-2027': [
     {
       date: '2026-09-07',
+      lieu: 'Salle 001', adresse: 'CRED, Université Paris Assas',
       presentations: [
         {
           titre: 'The Determinants and Dynamics of Music Track Discovery',
@@ -27,12 +28,23 @@ export const programmes = {
       ],
     },
     {
-      date: '2026-10',
-      titre: 'Séance à organiser',
-      titreEn: 'Session to be arranged',
-      note: 'La date, le lieu et les présentations seront annoncés prochainement.',
-      noteEn: 'The date, venue and presentations will be announced shortly.',
-      presentations: [],
+      date: '2026-10-15',
+      debut: '15:00',
+      lieu: 'Salle 001', adresse: 'CRED, Université Paris Assas',
+      presentations: [
+        {
+          titre: 'Let them search I am here: how to outsource a recommendation strategy',
+          intervenant: 'Ambre Geraut',
+          affiliation: 'Université Paris Assas, CRED',
+          langue: 'en',
+        },
+        {
+          titre: 'Essays in Behavioural Industrial Organization (PhD Pitch)',
+          intervenant: 'Fabrice-Orient Jerro',
+          affiliation: 'CREST, ENSAE & Télécom Paris',
+          langue: 'en',
+        },
+      ],
     },
     {
       date: '2026-11',
