@@ -41,7 +41,7 @@ export const programmes = {
         {
           titre: 'Essays in Behavioural Industrial Organization (PhD Pitch)',
           intervenant: 'Fabrice-Orient Jerro',
-          affiliation: 'CREST, ENSAE & Télécom Paris',
+          affiliation: 'ENSAE & Télécom Paris, CREST',
           langue: 'en',
         },
       ],
